@@ -1,5 +1,6 @@
 # teachers.py
 
+
 def authenticate_teacher():
     name = input("Enter your name >>> ")
     print(f"Welcome {name}")
