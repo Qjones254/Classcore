@@ -22,7 +22,7 @@ def teacher_menu():
                 mark_grades()
             elif choice == 2:
                 # Add functionality to view students' grades
-                view_teachers()
+                print("Function not applied yet")
             elif choice == 3:
                 break
             else:
