@@ -1,5 +1,21 @@
 # teachers.py
+import sqlite3
 
+def view_teachers():
+    CONN = sqlite3.connect('school.db')
+    cursor = CONN.cursor()
+
+    cursor.execute('SELECT * FROM teachers')
+    teachers = cursor.fetchall()
+
+    if not teachers:
+        print("No teachers found.")
+    else:
+        print("Teachers:")
+        for teacher in teachers:
+            print(f"ID: {teacher[0]}, Name: {teacher[1]} {teacher[2]}, Grade: {teacher[3]}, Pay: {teacher[4]}")
+
+    CONN.close()
 
 def authenticate_teacher():
     name = input("Enter your name >>> ")
@@ -9,6 +25,24 @@ def authenticate_teacher():
         print("Enter a valid password!")
         return None
     return name
+
+def teacher_menu():
+    name = authenticate_teacher()
+    if name:
+        while True:
+            print("1) Mark Students' grades")
+            print("2) View Students' grades")
+            print("3) Exit")
+            choice = int(input())
+            if choice == 1:
+                mark_grades()
+            elif choice == 2:
+                # Add functionality to view students' grades
+                view_teachers()
+            elif choice == 3:
+                break
+            else:
+                print("Invalid choice. Try again.")
 
 def mark_grades():
     while True:
@@ -38,20 +72,4 @@ def mark_grades():
         else:
             print("Invalid choice. Try again.")
 
-def teacher_menu():
-    name = authenticate_teacher()
-    if name:
-        while True:
-            print("1) Mark Students' grades")
-            print("2) View Students' grades")
-            print("3) Exit")
-            choice = int(input())
-            if choice == 1:
-                mark_grades()
-            elif choice == 2:
-                # Add functionality to view students' grades
-                print("Viewing students' grades is not implemented yet.")
-            elif choice == 3:
-                break
-            else:
-                print("Invalid choice. Try again.")
+
