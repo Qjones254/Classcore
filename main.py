@@ -1,8 +1,8 @@
 # main.py
-import sqlite3
+'''import sqlite3
 
-CONN = sqlite3.conect('classcore.db')
-CURSOR = CONN.cursor()
+CONN = sqlite3.connect('classcore.db')
+CURSOR = CONN.cursor()'''
 
 from teachers import teacher_menu
 
