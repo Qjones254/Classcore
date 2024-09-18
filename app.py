@@ -1,5 +1,9 @@
 import argparse
 import subprocess
+from colorama import init, Fore, Style
+
+# Initialize colorama
+init(autoreset=True)
 
 def app():
     parser = argparse.ArgumentParser(description="School Management CLI")
@@ -8,18 +12,19 @@ def app():
 
     args = parser.parse_args()
 
-    if args.role == 'main':
-        subprocess.run(['python', 'main.py'])
-    elif args.role == 'principal':
+    if args.role == 'principal':
         if args.view:
+            print(Fore.GREEN + Style.BRIGHT+"Opening teacher view for principal...")
             subprocess.run(['python', 'principal.py'])
         else:
-            print("For teachers, use --view to view teachers.")
-    elif args.role == 'teachers':
+            print(Fore.RED + "For teachers, use --view to view teachers.")
+    elif args.role == 'teacher':
         if args.view:
-            subprocess.run(['python','teachers.py'])
+            print(Fore.GREEN + "Opening student view for teacher...")
+            subprocess.run(['python', 'teachers.py'])
         else:
-            print("For students, use --view to view students.")
-    
-if __name__ == "__app__":
+            print(Fore.RED + "For students, use --view to view students.")
+
+if __name__ == "__main__":
     app()
+
