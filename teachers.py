@@ -1,21 +1,5 @@
 # teachers.py
-import sqlite3
 
-def view_teachers():
-    CONN = sqlite3.connect('school.db')
-    cursor = CONN.cursor()
-
-    cursor.execute('SELECT * FROM teachers')
-    teachers = cursor.fetchall()
-
-    if not teachers:
-        print("No teachers found.")
-    else:
-        print("Teachers:")
-        for teacher in teachers:
-            print(f"ID: {teacher[0]}, Name: {teacher[1]} {teacher[2]}, Grade: {teacher[3]}, Pay: {teacher[4]}")
-
-    CONN.close()
 
 def authenticate_teacher():
     name = input("Enter your name >>> ")

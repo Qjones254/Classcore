@@ -1,4 +1,5 @@
 import sqlite3
+from tabulate import tabulate
 
 def create_database():
     CONN = sqlite3.connect('school.db')
@@ -36,14 +37,32 @@ def add_teacher():
     CONN.close()
     print("Teacher added successfully.")
 
+def view_teachers():
+    CONN = sqlite3.connect('school.db')
+    cursor = CONN.cursor()
+
+    cursor.execute('SELECT * FROM teachers')
+    teachers = cursor.fetchall()
+
+    if not teachers:
+        print("No teachers found.")
+    else:
+        headers = ["ID", "First Name", "Last Name", "Grade Teaching", "Pay per Month"]
+        print(tabulate(teachers, headers=headers, tablefmt="grid"))
+
+    CONN.close()
+
 def principal_menu():
     while True:
         print("1) Add Teacher")
-        print("2) Exit")
+        print("2) View Teachers")
+        print("3) Exit")
         choice = int(input())
         if choice == 1:
             add_teacher()
         elif choice == 2:
+            view_teachers()
+        elif choice == 3:
             break
         else:
             print("Invalid choice. Try again.")
