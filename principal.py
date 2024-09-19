@@ -1,4 +1,7 @@
 import sqlite3
+from rich.console import Console
+
+console=Console()
 
 def create_database():
     CONN = sqlite3.connect('school.db')
@@ -51,7 +54,7 @@ def add_teacher():
 
     CONN.commit()
     CONN.close()
-    print("Teacher added successfully.")
+    console.print("Teacher added successfully.",style='green')
 
 def view_teachers():
     CONN = sqlite3.connect('school.db')
@@ -61,7 +64,7 @@ def view_teachers():
     teachers = cursor.fetchall()
 
     if not teachers:
-        print("No teachers found.")
+        console.print("No teachers found.",style='red')
     else:
         print(f"{'ID':<5} {'First Name':<15} {'Last Name':<15} {'Grade Teaching':<15} {'Pay per Month':<15}")
         print("=" * 70)
@@ -85,17 +88,17 @@ def remove_teacher():
     if cursor.rowcount == 0:
         print(f"No teacher found with ID {teacher_id}.")
     else:
-        print("Teacher removed successfully.")
+        console.print("Teacher removed successfully.",style='red')
 
     CONN.commit()
     CONN.close()
 
 def principal_menu():
     while True:
-        print("1) Add Teacher")
-        print("2) View Teachers")
-        print("3) Remove Teacher")
-        print("4) Exit")
+        console.print("1) Add Teacher",style='purple')
+        console.print("2) View Teachers",style='purple')
+        console.print("3) Remove Teacher",style='purple')
+        console.print("4) Exit",style='red')
         choice = int(input())
         if choice == 1:
             add_teacher()
@@ -106,7 +109,7 @@ def principal_menu():
         elif choice == 4:
             break
         else:
-            print("Invalid choice. Try again.")
+            console.print("Invalid choice. Try again.",style='red')
 
 if __name__ == "__main__":
     create_database()
