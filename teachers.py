@@ -1,5 +1,5 @@
-# teachers.py
-
+import sqlite3
+from tabulate import tabulate
 
 def authenticate_teacher():
     name = input("Enter your name >>> ")
@@ -9,20 +9,31 @@ def authenticate_teacher():
         print("Enter a valid password!")
         return None
     return name
+def view_students():
+    CONN = sqlite3.connect('school.db')
+    cursor = CONN.cursor()
+
+    cursor.execute('SELECT * FROM students')
+    students = cursor.fetchall()
+
+    if not students:
+        print("No students found!")
+    else:
+        headers =['ID','first_name','last_name','teacher','marks','grade']
+        print(tabulate(students,headers=headers,tablefmt='pretty'))
 
 def teacher_menu():
     name = authenticate_teacher()
     if name:
         while True:
             print("1) Mark Students' grades")
-            print("2) View Students' grades")
+            print("2) View Students")
             print("3) Exit")
             choice = int(input())
             if choice == 1:
                 mark_grades()
             elif choice == 2:
-                # Add functionality to view students' grades
-                print("Function not applied yet")
+                view_students()
             elif choice == 3:
                 break
             else:
