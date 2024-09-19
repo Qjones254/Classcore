@@ -1,4 +1,6 @@
-# main.py
+from rich.console import Console
+
+console=Console()
 '''import sqlite3
 
 CONN = sqlite3.connect('classcore.db')
@@ -11,12 +13,12 @@ def main():
     choice = 0
     while choice != 5:
 
-        print("Welcome to\n****CLASSCORE****")
-        print("1) Teacher")
-        print("2) Student")
-        print("3) Parent")
-        print("4) Principal")
-        print("5) Exit")
+        console.print(" Welcome to\n****CLASSCORE**** :book:",style="bold underline green")
+        console.print("1) Teacher",style="blue")
+        console.print("2) Student",style="blue")
+        console.print("3) Parent",style="blue")
+        console.print("4) Principal",style="blue")
+        console.print("5) Exit",style="red")
         choice = int(input())
 
         if choice == 1:
@@ -28,7 +30,7 @@ def main():
         elif choice == 4:
             principal_menu()
         elif choice == 5:
-            print("Exiting...")
+            console.print("Exiting...")
         else:
             print("Invalid choice. Try again.")
 
