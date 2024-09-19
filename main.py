@@ -1,5 +1,6 @@
 from rich.console import Console
 from parents import view_children
+from pupils import students_menu
 
 console=Console()
 '''import sqlite3
@@ -25,7 +26,7 @@ def main():
         if choice == 1:
             teacher_menu()
         elif choice == 2:
-            print("functionality not added yet")
+            students_menu()
         elif choice == 3:
             view_children()
         elif choice == 4:
