@@ -46,14 +46,14 @@ def populate_students():
         # Insert students only if the table is empty
         students = [
             ('John', 'Kiriamiti', 'Quincy Mwangi', 80.2, 'B'),
-            ('Max', 'Steppan', 'Quincy Mwangi', 86.4, 'A'),
+            ('Max', 'Steppan', 'Quincy Mwangi', 86.4, 'B'),
             ('Jim', 'Ludacris', 'Quincy Mwangi', 94.0, 'A'),
-            ('Leon', 'Kimani', 'Quincy Mwangi', 60.2, 'B'),
+            ('Leon', 'Kimani', 'Quincy Mwangi', 60.2, 'C'),
             ('Ferdinand', 'Omanyala', 'Quincy Mwangi', 66.2, 'C'),
             ('Erick', 'Mbuthia', 'Quincy Mwangi', 95.2, 'A'),
             ('Collins', 'Mucheru', 'Quincy Mwangi', 40.0, 'D'),
             ('Henry', 'Musaku', 'Quincy Mwangi', 76.7, 'B'),
-            ('Caleb', 'Lintir', 'Quincy Mwangi', 55.5, 'C'),
+            ('Caleb', 'Lintir', 'Quincy Mwangi', 55.5, 'D'),
             ('Ian', 'George', 'Quincy Mwangi', 87.3, 'B')
         ]
 
