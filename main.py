@@ -15,7 +15,7 @@ def main():
     choice = 0
     while choice != 5:
 
-        console.print(" Welcome to\n****CLASSCORE**** :book:",style="bold underline green")
+        console.print(" Welcome to\n:book:************:book:\n    CLASSCORE\n:book:*********** :book:",style="bold  green")
         console.print("1) Teacher",style="blue")
         console.print("2) Student",style="blue")
         console.print("3) Parent",style="blue")

@@ -95,20 +95,25 @@ def remove_teacher():
 
 def principal_menu():
     while True:
-        console.print("1) Add Teacher",style='purple')
-        console.print("2) View Teachers",style='purple')
-        console.print("3) Remove Teacher",style='purple')
-        console.print("4) Exit",style='red')
-        choice = int(input())
-        if choice == 1:
-            add_teacher()
-        elif choice == 2:
-            view_teachers()
-        elif choice == 3:
-            remove_teacher()
-        elif choice == 4:
-            break
+        password = "manager"
+        password = input("Enter password: ")
+        if password !="manager":
+            console.print("Invalid password.Please enter a valid password",style='red')
         else:
+         console.print("1) Add Teacher",style='purple')
+         console.print("2) View Teachers",style='purple')
+         console.print("3) Remove Teacher",style='purple')
+         console.print("4) Exit",style='red')
+         choice = int(input())
+         if choice == 1:
+            add_teacher()
+         elif choice == 2:
+            view_teachers()
+         elif choice == 3:
+            remove_teacher()
+         elif choice == 4:
+            break
+         else:
             console.print("Invalid choice. Try again.",style='red')
 
 if __name__ == "__main__":
