@@ -55,7 +55,7 @@ def add_teacher():
     CONN.commit()
     CONN.close()
     console.print("Teacher added successfully.",style='green')
-
+#This function views teachers table
 def view_teachers():
     CONN = sqlite3.connect('school.db')
     cursor = CONN.cursor()
@@ -73,7 +73,7 @@ def view_teachers():
             print(f"{teacher[0]:<5} {teacher[1]:<15} {teacher[2]:<15} {teacher[3]:<15} {teacher[4]:<15}")
 
     CONN.close()
-
+#This function removes teachers from the table
 def remove_teacher():
     #The user views the teachers first to know which ID to remove
     view_teachers()

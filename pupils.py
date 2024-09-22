@@ -4,16 +4,18 @@ from rich.console import Console
 
 console=Console()
 
+#This function is for the students menu
 def students_menu():
     while True:
        console.print("1) View Exams",style='purple')
        console.print("2) Exit",style='red')
        choice = int(input("Enter your Choice: "))
+       #This will allow the users to view the exams table
        if choice == 1:
            view_exams()
        else:
            break
-    
+    #This function is for creating exams table
 def create_exams_table():
         CONN = sqlite3.connect('school.db')
         cursor = CONN.cursor()
@@ -31,6 +33,7 @@ def create_exams_table():
         console.print("Created exams table successfully",style='red')
         CONN.close()
 ###############################################################################################################
+#This function is for adding exams to the exams table
 def insert_exam(name, term, grade_taking, beginning, ending):
     # Connecting to the database
     CONN = sqlite3.connect('school.db')  
@@ -45,6 +48,7 @@ def insert_exam(name, term, grade_taking, beginning, ending):
     print("Exam added successfully")
     CONN.close()
 ##############################################################################################################
+#This functon is for adding rows/values in exams table
 def populate_exams():
     # Connecting to the database
     CONN = sqlite3.connect('school.db')  
@@ -70,14 +74,15 @@ def populate_exams():
         for exam in exams:
             insert_exam(*exam)
     else:
-        print("Examss already exist in the database.")
+        print("Exams already exist in the database.")
     
     CONN.close()
 ######################################################################
+#This function is for viewingexams table
 def view_exams():
     CONN = sqlite3.connect('school.db')
     cursor = CONN.cursor()
-
+    #Selects all data fro the table
     cursor.execute('SELECT * FROM exams')
     exams = cursor.fetchall()
 
